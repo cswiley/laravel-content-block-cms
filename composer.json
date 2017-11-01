@@ -25,7 +25,7 @@
                 "Cswiley\\Cms\\CmsServiceProvider"
             ],
             "aliases"   : {
-                "Cms" : "CsWiley\\Cms\\Cms"
+                "Cms" : "Cswiley\\Cms\\Cms"
             }
         }
     },
