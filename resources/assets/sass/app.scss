@@ -1,0 +1,53 @@
+@import "../../../node_modules/foundation-sites/scss/foundation";
+
+.top-bar ul.menu.submenu {
+    min-width : 300px;
+    background-color: #fff;
+}
+
+ul.menu {
+    li {
+        margin-bottom : 0;
+    }
+
+    ul.submenu {
+        padding : 15px 0 10px 0;
+        > li {
+            &:hover {
+                background-color: rgba(0,0,0,.05);
+            }
+        }
+    }
+
+    &.page-menu {
+        li {
+           margin-bottom: $global-margin;
+        }
+    }
+}
+
+
+.cms-json {
+
+    .list .card-outline {
+        border : 1px solid black;
+    }
+
+    ul.list ul.list .card-outline {
+        border : 1px solid #aaa;
+    }
+
+
+
+    h1, h2, h3, h4, h5 {
+        font-family : "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .title {
+        padding : 30px 0;
+    }
+
+    .button.large {
+        font-size : 22px;
+    }
+}

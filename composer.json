@@ -1,0 +1,33 @@
+{
+    "name": "cameronwiley/cms",
+    "description": "Simple content block based cms package for laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "cameron wiley",
+            "email": "cameron@rescueagency.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "laravel/framework" : "5.5.*",
+        "php" : ">=7.0.0",
+        "laravel/tinker"         : "~1.0",
+        "laravelcollective/html" : "^5.5"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "CameronWiley\\Cms\\" : "src"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "CameronWiley\\Cms\\CmsServiceProvider"
+            ],
+            "aliases"   : {
+                "Cms" : "CameronWiley\\Cms\\Cms"
+            }
+        }
+    }
+}
