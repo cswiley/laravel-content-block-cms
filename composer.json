@@ -8,7 +8,6 @@
             "email": "cswiley1@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "laravel/framework" : "5.5.*",
         "php" : ">=7.0.0",
@@ -29,5 +28,7 @@
                 "Cms" : "CsWiley\\Cms\\Cms"
             }
         }
-    }
+    },
+    "minimum-stability" : "dev",
+    "prefer-stable"     : true
 }
