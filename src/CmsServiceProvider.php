@@ -31,7 +31,7 @@ class CmsServiceProvider extends ServiceProvider
         foreach (glob(__DIR__ . '/Helpers/*.php') as $filename) {
             require_once $filename;
         }
-        $this->app->make('CameronWiley\Cms\CmsController');
+        $this->app->make('Cswiley\Cms\CmsController');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'cms');
         $this->registerPublish();
     }

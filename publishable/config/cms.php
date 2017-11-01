@@ -41,7 +41,7 @@ return [
    |
    |
    */
-    'assets_path'  => '/vendor/cameronwiley/cms/assets',
+    'assets_path'  => '/vendor/cswiley/cms/assets',
 
     /*
     |--------------------------------------------------------------------------
