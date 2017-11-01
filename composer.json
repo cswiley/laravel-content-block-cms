@@ -16,13 +16,13 @@
     },
     "autoload" : {
         "psr-4" : {
-            "CsWiley\\Cms\\" : "src"
+            "Cswiley\\Cms\\" : "src"
         }
     },
     "extra" : {
         "laravel" : {
             "providers" : [
-                "CsWiley\\Cms\\CmsServiceProvider"
+                "Cswiley\\Cms\\CmsServiceProvider"
             ],
             "aliases"   : {
                 "Cms" : "CsWiley\\Cms\\Cms"

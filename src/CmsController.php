@@ -1,10 +1,9 @@
 <?php
 
-namespace CameronWiley\Cms;
+namespace Cswiley\Cms;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use function json_encode;
 
 class CmsController extends Controller

@@ -1,4 +1,4 @@
-<?php namespace CameronWiley\Cms;
+<?php namespace Cswiley\Cms;
 
 use const ARRAY_FILTER_USE_BOTH;
 use Illuminate\Support\Facades\Storage;

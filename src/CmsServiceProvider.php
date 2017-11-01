@@ -1,6 +1,6 @@
 <?php
 
-namespace CameronWiley\Cms;
+namespace Cswiley\Cms;
 
 use Illuminate\Support\ServiceProvider;
 
