@@ -15,6 +15,12 @@ class Cms
     {
         $translations = config('cms.translations');
         $files = $this->getStorage()->files();
+
+        // Only use .json files
+        $files = array_filter($files, function ($file) {
+            return !!preg_match('/\.json$/', $file);
+        });
+
         if (!$showExtension) {
             $files = array_map(function ($n) {
                 return preg_replace('/.json/', '', $n);
