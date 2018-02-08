@@ -12,7 +12,7 @@
     @stack('stylesheets')
     @yield('css')
 </head>
-<body>
+<body id="cms-wrap">
 
 @section('header')
 <header>

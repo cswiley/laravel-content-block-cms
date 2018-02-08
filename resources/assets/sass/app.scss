@@ -1,5 +1,21 @@
 @import "../../../node_modules/foundation-sites/scss/foundation";
 
+#cms-wrap {
+    .top-bar {
+        .dropdown.menu {
+            background-color : white;
+            a,
+            a:hover,
+            a:focus,
+            a:active {
+                color            : black;
+                background-color : transparent;
+
+            }
+        }
+    }
+}
+
 .top-bar ul.menu.submenu {
     min-width : 300px;
     background-color: #fff;
