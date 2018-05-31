@@ -50,6 +50,21 @@ return [
     */
     'title'        => 'Content Manager',
 
+    /*
+   |--------------------------------------------------------------------------
+   | Admin section home
+   |--------------------------------------------------------------------------
+   */
+    'admin_prefix' => 'admin',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Global content files
+    |--------------------------------------------------------------------------
+    */
+    'globals'         => [
+        'globals'
+    ],
 
     /*
      |--------------------------------------------------------------------------
@@ -59,7 +74,7 @@ return [
      | Specify your application stylesheets to load
      */
     'stylesheets'  => [
-        env('APP_URL') . '/css/app.css',
+        '/css/app.css',
     ],
 
     /*
@@ -70,8 +85,7 @@ return [
     | Specify your application scripts to load
     */
     'scripts'      => [
-        'https://use.fontawesome.com/b9c1035ab3.js',
-        env('APP_URL') . '/js/manifest.js',
-        env('APP_URL') . '/js/vendor.js',
+        '/js/manifest.js',
+        '/js/vendor.js',
     ]
 ];

@@ -8,6 +8,14 @@
 
 @section('main')
 <div class="row column medium-10 small-12">
-    <cms-form data-page="{{$title}}" data-route="{{config('cms.prefix', 'cms')}}"></cms-form>
+    <nav aria-label="You are here:" role="navigation" class="nav-breadcrumbs">
+        <ul class="breadcrumbs">
+            <li><a href="/{{config('cms.prefix', 'cms')}}">Menu</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> {{$title}}
+            </li>
+        </ul>
+    </nav>
+    <cms-json data-page="{{$title}}" data-global="{{in_array($title, config('cms.globals')) ? 'true' : 'false'}}" data-route="{{config('cms.prefix', 'cms')}}"></cms-json>
 </div>
 @stop

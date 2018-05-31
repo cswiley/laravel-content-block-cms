@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>@yield('page_title', 'title')</title>
+    <link rel="stylesheet" href="{{ cms_assets('css/app.css') }}">
     @foreach (config('cms.stylesheets') as $stylesheet)
         <link rel="stylesheet" href="{{ $stylesheet }}">
     @endforeach
-    <link rel="stylesheet" href="{{ cms_assets('css/app.css') }}">
     @stack('stylesheets')
     @yield('css')
 </head>

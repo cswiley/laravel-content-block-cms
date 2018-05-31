@@ -8,6 +8,6 @@
 
 @section('main')
 <div class="row column medium-10 small-12">
-    <cms-form data-page="{{$title}}" data-route="{{config('cms.prefix', 'cms')}}"></cms-form>
+    <cms-json data-page="{{$title}}" data-route="{{config('cms.prefix', 'cms')}}"></cms-json>
 </div>
 @stop
