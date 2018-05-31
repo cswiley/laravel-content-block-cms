@@ -2,18 +2,18 @@
     <div class="cms-json">
         <form action="">
             <div class="title">
-                <div class="text-right">
-                    <button type="button" class="button hollow default rounded" v-on:click="submit">Update Page</button>
-                    <a target="_blank" v-bind:href="'/' + dataPage" class="button hollow default rounded">View Page</a>
+                <div class="buttons">
+                    <button type="button" class="button hollow default rounded" v-on:click="submit">Save Changes</button>
+                    <a v-if="!global" target="_blank" v-bind:href="'/' + dataPage" class="button hollow default rounded">View Page</a>
                 </div>
                 <div class="success callout margin-bottom-1" data-closable="slide-out-right" v-if="success">
-                    <p>Page Saved</p>
+                    <p>Changes Saved</p>
                 </div>
                 <div class="success callout margin-bottom-1" data-closable="slide-out-right" v-if="error">
-                    <p>Page Saved</p>
+                    <p>Error - Unable To Save</p>
                 </div>
             </div>
-            <h2 class="margin-bottom-1">{{dataPage}}</h2>
+            <h2 class="margin-bottom-1">File: {{dataPage}}.json</h2>
             <div class="panel panel-default">
                 <ul class="panel-body list vertical">
                     <li v-for="(item, index) in items">
@@ -92,14 +92,21 @@
     import axios from 'axios';
 
     export default {
-        props     : ['dataPage', 'dataRoute'],
+        props     : [
+            'dataPage',
+            'dataRoute',
+            'dataGlobal',
+            'dataStorage'
+        ],
         components: ['cms-textarea'],
         data() {
             var el  = this,
                 url = this.dataRoute || 'cms';
+
             return {
                 error  : false,
                 success: false,
+                global: el.dataGlobal && el.dataGlobal === 'true',
                 items  : {},
                 errors : [],
                 submit : function (event) {
