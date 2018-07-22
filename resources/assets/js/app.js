@@ -15,8 +15,9 @@ require('foundation-sites');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-Vue.component('cms-json', require('./components/cms-json.vue'));
-Vue.component('cms-textarea', require('./components/cms-textarea.vue'));
+Vue.component('cms-json', require('./components/CmsJson'));
+Vue.component('cms-textarea', require('./components/CmsTextarea'));
+Vue.component('cms-viewer', require('./components/CmsViewer'));
 
 new Vue({
     el  : '#myApp',
