@@ -2,6 +2,8 @@
 
 namespace Cswiley\Cms;
 
+use function array_intersect;
+use function array_keys;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use function json_encode;
@@ -23,6 +25,7 @@ class CmsController extends Controller
     public function index()
     {
         $menu = $this->cms->all();
+
         return view('cms::home', compact('menu'));
     }
 
@@ -36,6 +39,19 @@ class CmsController extends Controller
         //
     }
 
+    protected function validCmsStructure($newData, $prevData)
+    {
+        if (empty($newData) || empty($prevData)) {
+            return false;
+        }
+
+        $a = array_keys($newData);
+        $b = array_keys($prevData);
+
+        return (count($a) === count($b)) && empty(array_diff($a, $b));
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -44,20 +60,55 @@ class CmsController extends Controller
      */
     public function store(Request $request)
     {
-        $input  = $request->input();
-        $array  = [];
-        $title  = $input['title'];
-        $data   = $input['data'];
-        $config = $input['config'];
-        foreach ($data as $value) {
-            array_set($array, $value['name'], $this->formatLine($value['value']));
+        $title = $request->input('title');
+        $data  = $request->input('data');
+
+        // Validate title
+        if (empty($title)) {
+            return response()->json([
+                'message' => "title is empty",
+                'ok'      => false
+            ]);
         }
 
-        // Add config data
-        if (!empty($config)) {
-            $array  = array_merge(['config' => $config], $array);
+        // Validate data
+        if (empty($data)) {
+            return response()->json([
+                'message' => "data is empty",
+                'ok'      => false
+            ]);
         }
-        $json   = json_encode($array);
+
+        // Validate file
+        $prevData    = $this->cms->get($title);
+        if (empty($prevData)) {
+            return response()->json([
+                'message' => "file ($title) not found",
+                'ok'      => false
+            ]);
+        }
+
+        $prevDataDot = array_dot($prevData);
+        $newDataDot  = array_dot($data);
+
+        // Validate saved data structure
+        if (!$this->validCmsStructure($newDataDot, $prevDataDot)) {
+            return response()->json([
+                'message' => 'data structure invalid',
+                'ok'      => false
+            ]);
+        }
+
+        $json = json_encode($data);
+
+        // validate json
+        if (!$json) {
+            return response()->json([
+                'message' => 'json invalid',
+                'ok'      => false
+            ]);
+        }
+
         $status = $this->cms->set($title, $json);
 
         return response()->json([
@@ -96,8 +147,8 @@ class CmsController extends Controller
         $title = $id;
         $data  = $this->cms->get($id);
         $edit  = true;
+
         return view('cms::page', compact('data', 'title', 'edit', 'menu'));
-        //
     }
 
     /**

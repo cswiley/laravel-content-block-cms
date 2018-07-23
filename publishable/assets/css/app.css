@@ -12,8 +12,17 @@
   font-size: 25px;
 }
 
+#cms-wrap label {
+  margin-bottom: 1rem;
+}
+
 #cms-wrap .nav-breadcrumbs {
   margin-top: 1rem;
+}
+
+#cms-wrap .top-bar {
+  background: transparent;
+  border-bottom: 1px solid black;
 }
 
 #cms-wrap .top-bar .dropdown.menu {
@@ -59,4 +68,8 @@
 
 #cms-wrap .cms-json .button.large {
   font-size: 22px;
+}
+
+#cms-wrap .cms-viewer {
+  padding: 1rem 0;
 }

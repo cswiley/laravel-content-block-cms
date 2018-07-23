@@ -15,7 +15,7 @@ require('foundation-sites');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-Vue.component('cms-json', require('./components/CmsJson'));
+// Vue.component('cms-json', require('./components/CmsJson'));
 Vue.component('cms-textarea', require('./components/CmsTextarea'));
 Vue.component('cms-viewer', require('./components/CmsViewer'));
 
@@ -24,4 +24,18 @@ new Vue({
     data : {}
 });
 
+// Required for laravel ajax calls
+function ajaxCsrfSetup() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+}
+
+function init() {
+    // ajaxCsrfSetup();
+}
+
+init();
 

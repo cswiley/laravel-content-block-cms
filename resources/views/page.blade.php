@@ -16,6 +16,7 @@
             </li>
         </ul>
     </nav>
-    <cms-json data-page="{{$title}}" data-global="{{in_array($title, config('cms.globals')) ? 'true' : 'false'}}" data-route="{{config('cms.prefix', 'cms')}}"></cms-json>
+    <cms-viewer path="{{ $title }}" get="{{ cms_api_path($title) }}" post="{{ cms_path() }}"></cms-viewer>
+    {{--<cms-json data-page="{{$title}}" data-global="{{in_array($title, config('cms.globals')) ? 'true' : 'false'}}" data-route="{{config('cms.prefix', 'cms')}}"></cms-json>--}}
 </div>
 @stop

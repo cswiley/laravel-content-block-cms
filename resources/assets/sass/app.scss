@@ -8,11 +8,17 @@
         font-size : 25px;
     }
 
+    label {
+        margin-bottom: 1rem;
+    }
+
     .nav-breadcrumbs {
         margin-top : 1rem;
     }
 
     .top-bar {
+        background: transparent;
+        border-bottom: 1px solid black;
         .dropdown.menu {
             background-color : white;
             a,
@@ -61,5 +67,10 @@
             font-size : 22px;
         }
     }
+
+    .cms-viewer {
+        padding: 1rem 0;
+    }
+
 
 }
