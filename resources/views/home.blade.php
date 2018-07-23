@@ -1,6 +1,6 @@
 @extends('cms::layouts.site')
 
-@section('content')
+@section('cms-content')
     <header>
         <h1>CMS Blocks</h1>
     </header>
@@ -8,7 +8,7 @@
         <ul class="home-menu">
             @foreach($menu as $key => $name)
                 <li class="item">
-                    <a href="/{{ config('cms.prefix', 'cms')}}/{{$key}}/edit">
+                    <a href="{{ cms_path($key) }}/edit">
                         {{$name}}
                     </a>
                 </li>

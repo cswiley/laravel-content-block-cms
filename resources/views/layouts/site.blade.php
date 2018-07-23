@@ -1,7 +1,7 @@
 @extends('cms::layouts.base')
 
-@section('main')
-    <div class="content">
-        @yield('content')
+@section('content')
+    <div id="cms-wrap">
+        @yield('cms-content')
     </div>
 @stop

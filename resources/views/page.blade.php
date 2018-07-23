@@ -6,7 +6,7 @@
     </style>
 @stop
 
-@section('content')
+@section('cms-content')
     <section class="cms-page">
         <nav aria-label="You are here:" role="navigation" class="nav-breadcrumbs">
             <ul class="breadcrumbs">

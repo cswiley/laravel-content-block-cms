@@ -12,7 +12,7 @@
     @stack('stylesheets')
     @yield('css')
 </head>
-<body id="cms-wrap">
+<body class="cms-default">
 
 <div id="myApp">
     <div class="main-header">
@@ -24,7 +24,7 @@
     </div>
     <div class="row">
         <div class="column small-12">
-            @yield('main')
+            @yield('content')
         </div>
     </div>
 </div>
