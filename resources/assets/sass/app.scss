@@ -8,9 +8,25 @@
         font-size : 25px;
     }
 
+    a {
+        &,
+        &:hover,
+        &:active,
+        &:visited {
+            color: black;
+        }
+    }
+
     label {
         margin-bottom: 1rem;
     }
+
+    .button,
+    button {
+        border-color: black;
+        color : black;
+    }
+
 
     .nav-breadcrumbs {
         margin-top : 1rem;

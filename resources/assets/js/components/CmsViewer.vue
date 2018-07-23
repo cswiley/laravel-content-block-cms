@@ -20,7 +20,7 @@
             <p>Error - Unable To Save</p>
         </div>
         <div class="buttons">
-            <button type="button" class="button hollow default rounded" @click="save">Save Changes</button>
+            <button type="button" class="button hollow rounded" @click="save">Save Changes</button>
             <a v-if="url" target="_blank" :href="url" class="button hollow default rounded">View Page</a>
         </div>
     </div>
