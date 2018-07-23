@@ -29,16 +29,6 @@ class CmsController extends Controller
         return view('cms::home', compact('menu'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     protected function validCmsStructure($newData, $prevData)
     {
         if (empty($newData) || empty($prevData)) {
@@ -151,26 +141,4 @@ class CmsController extends Controller
         return view('cms::page', compact('data', 'title', 'edit', 'menu'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
