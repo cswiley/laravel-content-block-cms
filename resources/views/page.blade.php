@@ -10,7 +10,7 @@
     <section class="cms-page">
         <nav aria-label="You are here:" role="navigation" class="nav-breadcrumbs">
             <ul class="breadcrumbs">
-                <li><a href="/{{config('cms.prefix', 'cms')}}">All Blocks</a></li>
+                <li><a href="{{ cms_path() }}">All Blocks</a></li>
                 <li>
                     <span class="show-for-sr">Current: </span> {{$title}}
                 </li>
