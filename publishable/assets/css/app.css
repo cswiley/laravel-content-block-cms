@@ -1,9 +1,7 @@
-/**
- * Foundation for Sites by ZURB
- * Version 6.4.4-rc1
- * foundation.zurb.com
- * Licensed under MIT Open Source
- */
+#cms-wrap h1 {
+  font-size: 38px;
+}
+
 #cms-wrap h2 {
   font-size: 32px;
 }
@@ -12,8 +10,20 @@
   font-size: 25px;
 }
 
+#cms-wrap .main-header {
+  border-bottom: 1px solid black;
+}
+
+#cms-wrap .content {
+  padding: 1rem 0;
+}
+
 #cms-wrap a, #cms-wrap a:hover, #cms-wrap a:active, #cms-wrap a:visited {
   color: black;
+}
+
+#cms-wrap a:hover {
+  text-decoration: underline;
 }
 
 #cms-wrap label {
@@ -30,15 +40,25 @@
   margin-top: 1rem;
 }
 
+#cms-wrap .title-bar,
 #cms-wrap .top-bar {
   background: transparent;
-  border-bottom: 1px solid black;
 }
 
+#cms-wrap .title-bar a,
+#cms-wrap .top-bar a {
+  text-decoration: none;
+}
+
+#cms-wrap .title-bar .dropdown.menu,
 #cms-wrap .top-bar .dropdown.menu {
   background-color: white;
 }
 
+#cms-wrap .title-bar .dropdown.menu a,
+#cms-wrap .title-bar .dropdown.menu a:hover,
+#cms-wrap .title-bar .dropdown.menu a:focus,
+#cms-wrap .title-bar .dropdown.menu a:active,
 #cms-wrap .top-bar .dropdown.menu a,
 #cms-wrap .top-bar .dropdown.menu a:hover,
 #cms-wrap .top-bar .dropdown.menu a:focus,
@@ -53,11 +73,7 @@
 }
 
 #cms-wrap .home-menu {
-  margin-top: 2rem;
-}
-
-#cms-wrap .home-menu li {
-  margin-bottom: 1rem;
+  list-style-type: decimal;
 }
 
 #cms-wrap .cms-json .list .card-outline {

@@ -1,9 +1,9 @@
-<div class="top-bar">
-    <div class="top-bar-left">
+<div class="title-bar">
+    <div class="title-bar-left">
         <a href="/{{config('cms.admin_prefix', 'admin')}}">Admin</a>
     </div>
-    <div class="top-bar-right">
-        <ul class="dropdown menu" data-dropdown-menu>
+    <div class="title-bar-right">
+        <ul class="dropdown menu align-right" data-dropdown-menu>
             <li>
                 <a href="#">Menu</a>
                 <ul class="menu">

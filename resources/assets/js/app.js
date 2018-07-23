@@ -25,16 +25,15 @@ new Vue({
 });
 
 // Required for laravel ajax calls
-function ajaxCsrfSetup() {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+
+function bindFoundation() {
+    $(document).foundation();
+    $(document).trigger('foundationLoaded');
 }
 
 function init() {
     // ajaxCsrfSetup();
+    bindFoundation();
 }
 
 init();

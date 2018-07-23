@@ -1,11 +1,22 @@
-@import "../../../node_modules/foundation-sites/scss/foundation";
 
 #cms-wrap {
+    h1 {
+        font-size: 38px;
+    }
+
     h2 {
         font-size : 32px;
     }
     h3 {
         font-size : 25px;
+    }
+
+    .main-header {
+        border-bottom: 1px solid black;
+    }
+
+    .content {
+        padding: 1rem 0;
     }
 
     a {
@@ -14,6 +25,10 @@
         &:active,
         &:visited {
             color: black;
+        }
+
+        &:hover {
+            text-decoration: underline;
         }
     }
 
@@ -32,9 +47,12 @@
         margin-top : 1rem;
     }
 
+    .title-bar,
     .top-bar {
         background: transparent;
-        border-bottom: 1px solid black;
+        a {
+            text-decoration: none;
+        }
         .dropdown.menu {
             background-color : white;
             a,
@@ -54,10 +72,14 @@
     }
 
     .home-menu {
-        margin-top : 2rem;
+        list-style-type: decimal;
         li {
-            margin-bottom : $global-margin;
+            //margin-bottom : $global-margin;
         }
+    }
+
+    section.cms-home,
+    section.cms-page {
     }
 
     .cms-json {
