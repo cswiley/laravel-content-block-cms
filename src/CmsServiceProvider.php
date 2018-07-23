@@ -42,7 +42,7 @@ class CmsServiceProvider extends ServiceProvider
         $resourcePath    = dirname(__DIR__) . "/resources/";
 
         $publishable = [
-            'assets' => [
+            'public' => [
                 "{$publishablePath}/assets" => public_path(config('cms.assets_path'))
             ],
             'config' => [
