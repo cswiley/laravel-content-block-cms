@@ -33,6 +33,8 @@
     <script type="text/javascript" src="{{ $scripts }}"></script>
 @endforeach
 <script type="text/javascript" src="{{ cms_assets('js/app.js') }}"></script>
+<script>
+</script>
 
 </body>
 </html>

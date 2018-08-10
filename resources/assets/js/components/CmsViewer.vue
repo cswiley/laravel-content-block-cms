@@ -2,17 +2,13 @@
     <div class="cms-viewer">
         <div class="title">
             <h1>{{ path }}</h1>
-
         </div>
-        <div v-for="(val, key) in flatFields">
-            <label>[{{key}}]
-                <textarea v-if="isType(key, 'textarea')" v-model="flatFields[key]" rows="5"></textarea>
-                <input type="text" v-if="isType(key, 'text')" v-model="flatFields[key]"/>
-                <div v-if="isType(key, 'editor')" :data-key="key" class="summernote"></div>
-            </label>
+        <div class="viewer-field" v-for="(val, key) in flatFields">
+            <label>{{key}}</label>
+            <input type="text" v-if="isType(key, 'text')" v-model="flatFields[key]"/>
+            <textarea v-else-if="isType(key, 'textarea')" v-model="flatFields[key]" rows="5"></textarea>
+            <div v-else-if="isType(key, 'editor')" :data-key="key" class="summernote"></div>
         </div>
-
-
         <div class="success callout margin-bottom-1" data-closable="slide-out-right" v-if="success">
             <p>Changes Saved</p>
         </div>
@@ -24,7 +20,6 @@
             <a v-if="url" target="_blank" :href="url" class="button hollow default rounded">View Page</a>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -34,11 +29,12 @@
     import 'summernote/dist/font/summernote.woff';
     import 'summernote/dist/summernote-lite.css';
     import 'summernote/dist/summernote-lite';
+    import pretty from 'pretty';
 
     function bindSummerNote(selector, opts, values) {
         var defaults = {
-                tabsize: 2,
-                height : 600
+                tabsize  : 2,
+                height   : 400,
             },
             settings = $.extend({}, defaults, opts || {});
 
@@ -49,6 +45,13 @@
             $el.summernote(settings);
             $el.summernote('code', values[key] || '');
         });
+
+        // $('.viewer-field').on('click', '.btn-codeview', function () {
+        //     var $summernote = $(event.currentTarget.querySelector('.summernote')),
+        //         formatted = pretty($summernote.summernote('code'));
+        //     debugger;
+        //     $summernote.summernote('code', '');
+        // });
     }
 
 
@@ -91,11 +94,23 @@
             };
         },
         mounted() {
+            // $('.summernote').summernote();
 
         },
         methods: {
             isType      : function (key, type) {
-                return this.configSearch(key) === type;
+                var configVal = this.configSearch(key) || 'text';
+                if (typeof configVal === 'string') {
+                    return configVal === type;
+                }
+                else if (configVal.type) {
+                    return configVal.type === type;
+                }
+                return false;
+            },
+            getOption   : function (key, option, fallback) {
+                var config = this.configSearch(key);
+                return config && config.opts && config.opts[key] ? config.opts[option] : fallback;
             },
             configSearch: function (key) {
                 var segments    = key.split('.'),
@@ -107,7 +122,7 @@
                     return (new RegExp(m)).test(filteredKey);
                 });
 
-                return res || 'text';
+                return res || null;
 
             },
             dot         : function (data, prepend) {
@@ -164,7 +179,7 @@
 
                 $('.summernote').each(function () {
                     var $el = $(this);
-                    vue.setDot(fieldsObj, $el.attr('data-key'), $el.summernote('code'));
+                    vue.setDot(fieldsObj, $el.attr('data-key'), pretty($el.summernote('code')));
                 });
 
                 data = $.extend({}, vue.data, fieldsObj);
